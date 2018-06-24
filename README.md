@@ -1,2 +1,2 @@
-# http://calc_khsassis.github.io/index.html
+# http://calc_khsassis.github.io
 Introdução a programação para internet
