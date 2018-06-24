@@ -1,0 +1,114 @@
+<DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script>
+function Limpar()
+  {
+   document.form1.parcela.value = ""
+   document.form1.periodo.value = ""
+   document.form1.juros.value = ""   
+   document.form1.montante.value = ""
+  }
+  function Calcular()
+  {
+  	var parcela;
+  	var periodo;
+  	var juros;
+  	var fells;
+    parcela = parseFloat(document.getElementById("parcela").value);
+    periodo = parseInt(document.getElementById("periodo").value);
+    juros = parseFloat(document.getElementById("juros").value);
+
+    fells = parcela*Math.pow((1+juros),periodo);
+    var bruto = fells - parcela;
+    var medio = bruto/periodo;
+
+	
+	document.form1.montante.value = fells
+	document.form1.rendimentototal.value = bruto
+	document.form1.rendimentomedio.value = medio
+	return
+  }
+</script>
+
+
+<form name="form1">
+<table style="margin-left: auto; margin-right: auto;" summary="Tabela de calculo" border="0" cellpadding="8"> 
+<tbody> 
+<tr> 
+<td colspan="2" style="text-align: center; background-color: rgb(217, 193, 138); border:none;" nowrap="nowrap"> 
+          <strong>Começe hoje mesmo  a investir</strong><br /> 
+          <span class="textoPequeno"><em>(Informe quanto esta disposto a poupar)</em></span></td>
+ 
+</tr>
+<tr> 
+<td style="background-color: rgb(252, 248, 239); border:none;" scope="row"> 
+          <label for="parcela"><br /> 
+          <em>Valor inicial
+          </p> 
+                    </em>
+          <p>          <span style="font-size: 0.8em;">(Converse com seu gerente a possibilidade de novos aportes)</span><br /> 
+          </label></td> 
+<td style="background-color: rgb(252, 248, 239); border:none;"> 
+<input name="parcela" id="parcela" size="16" tabindex="3" title="Digite valor da prestação" value="" type="text"> 
+      </td> 
+</tr>  
+<tr> 
+<td style="background-color: rgb(252, 248, 239); border:none;"> 
+        <label for="periodo"><em>Meses em que o dinheiro permanecera aplicado:</em></label></p></td>
+		<td style="background-color: rgb(252, 248, 239); border:none;"> 
+<input name="periodo" id="periodo" size="10" title="Digite o número de meses" tabindex="1" value="" type="text"> 
+      </td> 
+</tr> 
+<tr> 
+<td style="background-color: rgb(252, 248, 239); border:none;" scope="row"> 
+          <label for="juros"><em>Taxa de juros mensal:</em></label></td> 
+<td style="background-color: rgb(252, 248, 239); border:none;"> 
+<input name="juros" id="juros" size="10" tabindex="2" title="Digite taxa de juros mensal" value="" type="text">%
+             </td> 
+</tr> 
+
+<tr> 
+<td style="background-color: rgb(252, 248, 239); border:none;" scope="row"> 
+<p>          <label for="montante"><br /> 
+          <em>Valor disponivel para regaste:<br /> 
+          <span style="font-size: 0.8em;">(Caso ocorra o resgate antes da data prevista encargos financeiros serão aplicados)</span></em></label> 
+        </td> 
+<td style="background-color: rgb(252, 248, 239); border:none;"> 
+<input name="montante" size="16" tabindex="4" title="Digite o valor financiado" id="montante" value="" type="text"> 
+</td> 
+</tr> 
+<tr> 
+<td style="background-color: rgb(252, 248, 239); border:none;" scope="row"> 
+<p>          <label for="rendimentomedio"><br /> 
+          <em>Valor medio rendimento mensal:<br /> 
+          </em></label> 
+        </td> 
+<td style="background-color: rgb(252, 248, 239); border:none;"> 
+<input name="rendimento" size="16" tabindex="4" title="Seu produto rendera..." id="rendimentomedio" value="" type="text"> 
+</td> 
+</tr>
+
+<tr> 
+<td style="background-color: rgb(252, 248, 239); border:none;" scope="row"> 
+<p>          <label for="rendimentototal"><br /> 
+          <em>Rendimento total<br /> 
+          </em></label> 
+        </td> 
+<td style="background-color: rgb(252, 248, 239); border:none;"> 
+<input name="rendimentototal" size="16" tabindex="4" title="Saldo atualizado no final do ciclo" id="rendimentototal" value="" type="text"> 
+</td> 
+</tr> 
+<tr> 
+<td style="text-align: center; background-color: rgb(252, 248, 239); border:none;" colspan="2"> 
+<input name="Button" type="button" tabindex="5" onClick="Calcular()" onKeyPress="Calcular()" value="Calcular">
+</p> 
+<input value="Limpar" onClick="Limpar()" onKeyPress="Limpar()" tabindex="6" type="button"></td> 
+</tr> 
+
+</tbody> 
+</table>
+</form>
+</body>
